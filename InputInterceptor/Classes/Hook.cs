@@ -64,14 +64,16 @@ namespace InputInterceptorNS {
                     this.Device = device;
                     if (this.Active && this.Callback != null) {
                         try {
-                            this.CallbackWrapper(ref stroke);
+                            bool forwardKeyStroke = this.CallbackWrapper(ref stroke);
                         } catch (Exception exception) {
                             Console.WriteLine(exception);
                             this.Exception = exception;
                             this.Active = false;
                         }
                     }
-                    InputInterceptor.Send(this.Context, device, ref stroke, 1);
+                    if (forwardKeyStroke) {
+                        InputInterceptor.Send(this.Context, device, ref stroke, 1);
+                    }
                 }
             }
         }
