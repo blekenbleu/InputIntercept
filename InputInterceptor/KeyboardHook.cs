@@ -124,8 +124,8 @@ namespace InputInterceptorNS {
         public KeyboardHook(CallbackAction callback) :
             base((Filter)KeyboardFilter.All, InputInterceptor.IsKeyboard, callback) { }
 
-        protected override void CallbackWrapper(ref Stroke stroke) {
-            this.Callback(ref stroke.Key);
+        protected override bool CallbackWrapper(ref Stroke stroke) {
+            return this.Callback(ref stroke.Key);
         }
 
         public Boolean SetKeyState(KeyCode code, KeyState state) {
