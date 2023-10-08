@@ -10,7 +10,7 @@ namespace InputInterceptorNS {
 
     public abstract class Hook<TCallbackStroke> : IDisposable {
 
-        public delegate void CallbackAction(ref TCallbackStroke stroke);
+        public delegate Boolean CallbackAction(ref TCallbackStroke stroke);
 
         public Context Context { get; private set; }
         public Device Device { get; private set; }
