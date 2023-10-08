@@ -28,7 +28,7 @@ namespace InputInterceptorNS {
 
         protected Device AnyDevice => this.Device != -1 ? this.Device : this.RandomDevice;
 
-        protected abstract bool CallbackWrapper(ref Stroke stroke);
+        protected abstract Boolean CallbackWrapper(ref Stroke stroke);
 
         public Hook(Filter filterMode, Predicate predicate, CallbackAction callback) {
             Context context = InputInterceptor.CreateContext();
@@ -62,7 +62,7 @@ namespace InputInterceptorNS {
                 device = InputInterceptor.WaitWithTimeout(this.Context, 100);
                 if (InputInterceptor.Receive(this.Context, device, ref stroke, 1) > 0) {
                     this.Device = device;
-                    bool forwardKeyStroke = true;
+                    Boolean forwardKeyStroke = true;
                     if (this.Active && this.Callback != null) {
                         try {
                             forwardKeyStroke = this.CallbackWrapper(ref stroke);
