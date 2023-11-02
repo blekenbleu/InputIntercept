@@ -11,6 +11,7 @@ using Device = System.Int32;
 using Filter = System.UInt16;
 using Precedence = System.Int32;
 
+// this may make more sense: https://github.com/oblitum/Interception/blob/master/library/interception.h
 namespace InputInterceptorNS {
 
     public static class InputInterceptor {
@@ -126,6 +127,7 @@ namespace InputInterceptorNS {
         public static List<DeviceData> GetDeviceList(Context context, Predicate predicate = null) {
             List<DeviceData> result = new List<DeviceData>();
             Char[] buffer = new Char[1024];
+			// access a managed object from unmanaged memory
             GCHandle gcHandle = GCHandle.Alloc(buffer, GCHandleType.Pinned);
             IntPtr bufferPtr = gcHandle.AddrOfPinnedObject();
             for (Device device = 1; device <= 20; device += 1) {

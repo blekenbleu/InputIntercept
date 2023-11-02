@@ -171,8 +171,8 @@ namespace InputInterceptorNS {
     public enum MouseFlags : UInt16 {
         MoveRelative = 0x000,
         MoveAbsolute = 0x001,
-        VirtualDesktop = 0x002,
-        AttributesChanged = 0x004,
+        VirtualDesktop = 0x002,		// multiple monitor system
+        AttributesChanged = 0x004,	// https://learn.microsoft.com/en-us/windows/win32/api/ntddmou/ns-ntddmou-mouse_attributes 
         MoveWithoutCoalescing = 0x008,
         TerminalServicesSourceShadow = 0x100,
     }
