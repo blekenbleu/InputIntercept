@@ -2,6 +2,7 @@
 using System.Threading;
 
 using Filter = System.UInt16;
+using Device = System.Int32;
 
 namespace InputInterceptorNS {
 
@@ -24,8 +25,8 @@ namespace InputInterceptorNS {
         public MouseHook(CallbackAction callback) :
             base((Filter)MouseFilter.All, InputInterceptor.IsMouse, callback) { }
 
-        protected override Boolean CallbackWrapper(ref Stroke stroke) {
-            return this.Callback(ref stroke.Mouse);
+        protected override Boolean CallbackWrapper(Device device, ref Stroke stroke) {
+            return this.Callback(device, ref stroke.Mouse);
         }
 
         public Boolean SetMouseState(MouseState state, Int16 rolling = 0) {

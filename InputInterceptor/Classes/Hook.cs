@@ -10,7 +10,7 @@ namespace InputInterceptorNS {
 
     public abstract class Hook<TCallbackStroke> : IDisposable {
 
-        public delegate Boolean CallbackAction(ref TCallbackStroke stroke);
+        public delegate Boolean CallbackAction(Device device, ref TCallbackStroke stroke);
 
         public Context Context { get; private set; }
         public Device Device { get; private set; }
@@ -28,7 +28,7 @@ namespace InputInterceptorNS {
 
         protected Device AnyDevice => this.Device != -1 ? this.Device : this.RandomDevice;
 
-        protected abstract Boolean CallbackWrapper(ref Stroke stroke);
+        protected abstract Boolean CallbackWrapper(Device device, ref Stroke stroke);
 
         public Hook(Filter filterMode, Predicate predicate, CallbackAction callback) {
             Context context = InputInterceptor.CreateContext();
@@ -65,7 +65,7 @@ namespace InputInterceptorNS {
                     Boolean forwardKeyStroke = true;
                     if (this.Active && this.Callback != null) {
                         try {
-                            forwardKeyStroke = this.CallbackWrapper(ref stroke);
+                            forwardKeyStroke = this.CallbackWrapper(device, ref stroke);
                         } catch (Exception exception) {
                             Console.WriteLine(exception);
                             this.Exception = exception;
