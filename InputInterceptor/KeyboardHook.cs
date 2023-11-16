@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
-using Device = System.Int32;
 
+using Context = System.IntPtr;
+using Device = System.Int32;
 using Filter = System.UInt16;
 
 namespace InputInterceptorNS {
@@ -125,8 +126,8 @@ namespace InputInterceptorNS {
         public KeyboardHook(CallbackAction callback) :
             base((Filter)KeyboardFilter.All, InputInterceptor.IsKeyboard, callback) { }
 
-        protected override Boolean CallbackWrapper(Device device, ref Stroke stroke) {
-            return this.Callback(device, ref stroke.Key);
+        protected override Boolean CallbackWrapper(Context context, Device device, ref Stroke stroke) {
+            return this.Callback(context, device, ref stroke.Key);
         }
 
         public Boolean SetKeyState(KeyCode code, KeyState state) {

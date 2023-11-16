@@ -3,6 +3,6 @@ which added bool returns to [0x2E757](https://github.com/0x2E757) @ https://gith
 C# wrapper for Francisco Lopes' mouse and keyboard [Interception API](https://www.oblita.com/interception.html)
 
 This fork modified the [`CallbackAction` delegate](blob/master/InputInterceptor/Classes/Hook.cs#L13)
- to pass also numeric [`device`](blob/master/InputInterceptor/Classes/Hook.cs#L64),  
+ to also pass numeric [`Context` and `device`](blob/master/InputInterceptor/Classes/Hook.cs#L68),  
 enabling callbacks to selectively divert devices.
 
