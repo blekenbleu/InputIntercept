@@ -127,7 +127,13 @@ namespace InputInterceptorNS {
             base((Filter)KeyboardFilter.All, InputInterceptor.IsKeyboard, callback) { }
 
         protected override Boolean CallbackWrapper(Context context, Device device, ref Stroke stroke) {
-            return this.Callback(context, device, ref stroke.Key);
+			try
+			{
+            	return this.Callback(context, device, ref stroke.Key);
+			}
+			catch {
+				return true;	// false aborts stroke processing
+			}
         }
 
         public Boolean SetKeyState(KeyCode code, KeyState state) {

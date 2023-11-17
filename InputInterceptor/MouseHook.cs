@@ -32,7 +32,7 @@ namespace InputInterceptorNS {
             	return this.Callback(context, device, ref stroke.Mouse);
 			}
 			catch {
-				return false;
+				return true;	// returning false aborts mouse handling
 			}
         }
 
