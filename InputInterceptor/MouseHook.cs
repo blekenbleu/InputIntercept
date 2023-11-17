@@ -27,7 +27,13 @@ namespace InputInterceptorNS {
             base((Filter)MouseFilter.All, InputInterceptor.IsMouse, callback) { }
 
         protected override Boolean CallbackWrapper(Context context, Device device, ref Stroke stroke) {
-            return this.Callback(context, device, ref stroke.Mouse);
+            try
+            {
+            	return this.Callback(context, device, ref stroke.Mouse);
+			}
+			catch {
+				return false;
+			}
         }
 
         public Boolean SetMouseState(MouseState state, Int16 rolling = 0) {
