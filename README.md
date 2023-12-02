@@ -6,3 +6,10 @@ This fork modified the [`CallbackAction` delegate](blob/master/InputInterceptor/
  to also pass numeric [`Context` and `device`](blob/master/InputInterceptor/Classes/Hook.cs#L68),  
 enabling callbacks to selectively divert devices.
 
+**Note!**
+- Directly referencing this `static class` from
+  a [WPF XAML](https://github.com/blekenbleu/WPF_XAML) app directly accessing this library
+ [crashes](https://github.com/blekenbleu/InputInterceptor-PersonalFork/blob/3193937a7edbd6268ef19ec5ab6afa3079a4ac36/InputInterceptor/InputInterceptor.cs#L24)  
+	- until delayed after [`InputInterceptor.Initialize()`](https://github.com/blekenbleu/InputInterceptor-PersonalFork/blob/3193937a7edbd6268ef19ec5ab6afa3079a4ac36/InputInterceptor/InputInterceptor.cs#L45)
+- This crash <i>did not</i> occur in a [console app](https://github.com/blekenbleu/InterceptMouse), go figure.
+	- [This *non-static* class](https://github.com/blekenbleu/InterceptMouse/blob/class/Intercept.cs) insulates using applications from this static class.
