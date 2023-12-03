@@ -47,7 +47,7 @@ namespace InputInterceptorNS {
 			if (Initialized)
 				return true;
 			try {
-				Byte[] DllBytes = Helpers.GetResource($"Xinterception_x{(IntPtr.Size == 8 ? "64" : "86")}.dll");
+				Byte[] DllBytes = Helpers.GetResource($"interception_x{(IntPtr.Size == 8 ? "64" : "86")}.dll");
 				if (null == DllBytes)
 					return false;
 				DllWrapper = new DllWrapper(DllBytes);
