@@ -103,8 +103,7 @@ namespace InputInterceptorNS {
         }
 
         public Win32Point GetCursorPosition() {
-            Win32Point result;
-            NativeMethods.GetCursorPos(out result);
+            NativeMethods.GetCursorPos(out Win32Point result);
             return result;
         }
 
