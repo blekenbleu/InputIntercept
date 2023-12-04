@@ -11,7 +11,7 @@ This fork
 
 **Note!**
 - A [WPF XAML](https://github.com/blekenbleu/WPF_XAML) app directly accessing this `static class`
- [crashes](https://github.com/blekenbleu/InputInterceptor-PersonalFork/blob/3193937a7edbd6268ef19ec5ab6afa3079a4ac36/InputInterceptor/InputInterceptor.cs#L24)  
-	- until delayed after [`InputInterceptor.Initialize()`](https://github.com/blekenbleu/InputInterceptor-PersonalFork/blob/3193937a7edbd6268ef19ec5ab6afa3079a4ac36/InputInterceptor/InputInterceptor.cs#L45)
+ [crashes](https://github.com/blekenbleu/InputIntercept/blob/3193937a7edbd6268ef19ec5ab6afa3079a4ac36/InputInterceptor/InputInterceptor.cs#L24)  
+	- until delayed after [`InputInterceptor.Initialize()`](https://github.com/blekenbleu/InputIntercept/blob/3193937a7edbd6268ef19ec5ab6afa3079a4ac36/InputInterceptor/InputInterceptor.cs#L45)
 - This crash <i>did not</i> occur in a [console app](https://github.com/blekenbleu/InterceptMouse), go figure.
 	- [This *non-static* class](https://github.com/blekenbleu/InterceptMouse/blob/class/Intercept.cs) insulates using applications from this `static class`.
