@@ -126,10 +126,10 @@ namespace InputInterceptorNS {
         public KeyboardHook(CallbackAction callback) :
             base((Filter)KeyboardFilter.All, InputInterceptor.IsKeyboard, callback) { }
 
-        protected override Boolean CallbackWrapper(Context context, Device device, ref Stroke stroke) {
+        protected override Boolean CallbackWrapper(Device device, ref Stroke stroke) {
 			try
 			{
-            	return this.Callback(context, device, ref stroke.Key);
+            	return this.Callback(device, ref stroke.Key);
 			}
 			catch {
 				return true;	// false aborts stroke processing

@@ -11,6 +11,7 @@ C# wrapper for Francisco Lopes' mouse and keyboard [Interception API](https://ww
 
 #### This branch:&nbsp; `stripped`
 - remove `install-interception.exe` and other stuff not needed for SimHub plugin
+- remove callback `context` argument
 
 #### Note!
 - A [WPF XAML](https://github.com/blekenbleu/WPF_XAML) app directly accessing this `static class`

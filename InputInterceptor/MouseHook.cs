@@ -26,10 +26,10 @@ namespace InputInterceptorNS {
         public MouseHook(CallbackAction callback) :
             base((Filter)MouseFilter.All, InputInterceptor.IsMouse, callback) { }
 
-        protected override Boolean CallbackWrapper(Context context, Device device, ref Stroke stroke) {
+        protected override Boolean CallbackWrapper(Device device, ref Stroke stroke) {
             try
             {
-            	return this.Callback(context, device, ref stroke.Mouse);
+            	return this.Callback(device, ref stroke.Mouse);
 			}
 			catch {
 				return true;	// returning false aborts mouse handling
