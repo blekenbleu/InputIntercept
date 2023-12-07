@@ -6,13 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\install-interception.exe" />
     <None Remove="Resources\interception_x64.dll" />
     <None Remove="Resources\interception_x86.dll" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\install-interception.exe" />
     <EmbeddedResource Include="Resources\interception_x64.dll" />
     <EmbeddedResource Include="Resources\interception_x86.dll" />
   </ItemGroup>

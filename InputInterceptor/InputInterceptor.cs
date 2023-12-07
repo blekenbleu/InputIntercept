@@ -84,41 +84,6 @@ namespace InputInterceptorNS {
 			return true;
 		}
 
-		public static Boolean CheckAdministratorRights() {
-			WindowsIdentity windowsIdentity = WindowsIdentity.GetCurrent();
-			WindowsPrincipal windowsPrincipal = new WindowsPrincipal(windowsIdentity);
-			return windowsPrincipal.IsInRole(WindowsBuiltInRole.Administrator);
-		}
-
-		private static Boolean ExecuteInstaller(String arguments) {
-			Boolean result = false;
-			if (CheckAdministratorRights() && !CheckDriverInstalled()) {
-				String randomTempFileName = Path.GetTempFileName();
-				try {
-					File.WriteAllBytes(randomTempFileName, Helpers.GetResource("install-interception.exe"));
-					Process process = new Process();
-					process.StartInfo.FileName = randomTempFileName;
-					process.StartInfo.Arguments = arguments;
-					process.StartInfo.UseShellExecute = false;
-					process.StartInfo.CreateNoWindow = true;
-					process.Start();
-					process.WaitForExit();
-					result = process.ExitCode == 0;
-					File.Delete(randomTempFileName);
-				} catch (Exception exception) {
-					Console.WriteLine(exception);
-				}
-			}
-			return result;
-		}
-
-		public static Boolean InstallDriver() {
-			return ExecuteInstaller("/install");
-		}
-
-		public static Boolean UninstallDriver() {
-			return ExecuteInstaller("/uninstall");
-		}
 
 		public static List<DeviceData> GetDeviceList(Predicate predicate = null) {
 			Context context = CreateContext();
