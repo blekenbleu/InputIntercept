@@ -9,9 +9,6 @@ C# wrapper for Francisco Lopes' mouse and keyboard [Interception API](https://ww
 - modified Initialize() to detect null bytes from missing/defective `interception_x*.dll`,  
  instead returning false
 
-#### This branch:&nbsp; `stripped`
-- remove `install-interception.exe` and other stuff not needed for SimHub plugin
-
 #### Note!
 - A [WPF XAML](https://github.com/blekenbleu/WPF_XAML) app directly accessing this `static class`
  [crashes](https://github.com/blekenbleu/InputIntercept/blob/3193937a7edbd6268ef19ec5ab6afa3079a4ac36/InputInterceptor/InputInterceptor.cs#L24)  
