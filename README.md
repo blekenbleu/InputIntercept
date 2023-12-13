@@ -11,7 +11,7 @@
   returning false, instead of crashing
 
 #### This branch:&nbsp; `stripped`
-- removes `install-interception.exe` and other stuff not needed for SimHub plugin
+- removes `install-interception.exe` and other stuff not wanted for SimHub plugin
 - requires [@oblitum's `Interception.zip`](https://github.com/oblitum/Interception/releases/latest) package to install or remove that driver
 - removed redundant callback `context` argument
 
